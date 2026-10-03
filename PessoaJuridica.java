@@ -1,10 +1,4 @@
-/**
- * Subclasse que representa um cliente Pessoa Jurídica.
- *
- * Assim como PessoaFisica, herda de Cliente e reaproveita toda a estrutura
- * comum. A diferença de comportamento (polimorfismo) aparece em
- * getDocumento() e getTipo(), e no atributo extra "razaoSocial".
- */
+
 public class PessoaJuridica extends Cliente {
 
     private String cnpj;
@@ -44,7 +38,7 @@ public class PessoaJuridica extends Cliente {
 
     private String formatarCnpj(String d) {
         return d.substring(0, 2) + "." + d.substring(2, 5) + "." + d.substring(5, 8)
-             + "/" + d.substring(8, 12) + "-" + d.substring(12, 14);
+                + "/" + d.substring(8, 12) + "-" + d.substring(12, 14);
     }
 
     @Override
