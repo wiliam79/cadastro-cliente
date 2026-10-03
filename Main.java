@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Classe principal (ponto de entrada do programa).
  *
  * Aqui aparecem os conceitos centrais de LÓGICA DE PROGRAMAÇÃO exigidos
- * pela atividade:
+ * pelo Projeto integrador :
  *  - VARIÁVEIS para guardar as opções e dados digitados;
  *  - CONDIÇÕES (if/else e switch) para decidir o que fazer a cada opção;
  *  - REPETIÇÃO (laço "while") para manter o menu ativo até o usuário sair;
@@ -26,15 +26,13 @@ public class Main {
     private static final CadastroClientes cadastro = new CadastroClientes();
 
     public static void main(String[] args) {
-        // Força a saída do console em UTF-8, evitando que acentos e "ç"
-        // apareçam corrompidos em terminais cujo charset padrão não é UTF-8
-        // (situação comum em alguns terminais do Windows).
+    
         System.setOut(new PrintStream(System.out, true, StandardCharsets.UTF_8));
 
         boolean continuar = true; // variável de controle do laço
 
         System.out.println("=========================================");
-        System.out.println(" SISTEMA DE CADASTRO DE CLIENTES ");
+        System.out.println(" SISTEMA DE CADASTRO DE CLIENTES JP SOLUÇÕES ");
         System.out.println("=========================================");
 
         while (continuar) {
@@ -77,7 +75,7 @@ public class Main {
     }
 
     private static int lerOpcao() {
-        // Tratamento simples de erro: se o usuário digitar algo que não é
+        // Tratamento simples de erro: se o usuário digitar algo que não é um
         // número, o programa não quebra, apenas avisa e devolve -1.
         try {
             return Integer.parseInt(scanner.nextLine().trim());
