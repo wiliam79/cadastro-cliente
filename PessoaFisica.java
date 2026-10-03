@@ -1,11 +1,4 @@
-/**
- * Subclasse que representa um cliente Pessoa Física.
- *
- * HERANÇA: "extends Cliente" faz com que PessoaFisica reaproveite id, nome,
- * telefone, email e dataCadastro sem duplicar código.
- *
- * POLIMORFISMO: implementa getDocumento() e getTipo() à sua maneira (CPF).
- */
+
 public class PessoaFisica extends Cliente {
 
     private String cpf;
@@ -34,7 +27,7 @@ public class PessoaFisica extends Cliente {
     // manipulação de strings) — deixa o CPF no padrão 000.000.000-00.
     private String formatarCpf(String digitos) {
         return digitos.substring(0, 3) + "." + digitos.substring(3, 6) + "."
-             + digitos.substring(6, 9) + "-" + digitos.substring(9, 11);
+                + digitos.substring(6, 9) + "-" + digitos.substring(9, 11);
     }
 
     @Override
