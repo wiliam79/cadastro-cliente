@@ -3,36 +3,19 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * Classe principal (ponto de entrada do programa).
- *
- * Aqui aparecem os conceitos centrais de LÓGICA DE PROGRAMAÇÃO exigidos
- * pelo Projeto integrador :
- *  - VARIÁVEIS para guardar as opções e dados digitados;
- *  - CONDIÇÕES (if/else e switch) para decidir o que fazer a cada opção;
- *  - REPETIÇÃO (laço "while") para manter o menu ativo até o usuário sair;
- *  - FUNÇÕES (métodos privados) para organizar cada ação do menu, evitando
- *    um único método gigante e favorecendo a leitura do código.
- *
- * A interação com os OBJETOS (Cliente, PessoaFisica, PessoaJuridica,
- * CadastroClientes) mostra, na prática, a ORIENTAÇÃO A OBJETOS: o Main não
- * conhece os detalhes internos de cada classe, apenas usa os métodos
- * públicos que elas oferecem (encapsulamento) e trata cada cliente de forma
- * genérica através da superclasse Cliente (polimorfismo).
- */
 public class Main {
 
     private static final Scanner scanner = new Scanner(System.in);
     private static final CadastroClientes cadastro = new CadastroClientes();
 
     public static void main(String[] args) {
-    
+
         System.setOut(new PrintStream(System.out, true, StandardCharsets.UTF_8));
 
         boolean continuar = true; // variável de controle do laço
 
         System.out.println("=========================================");
-        System.out.println(" SISTEMA DE CADASTRO DE CLIENTES JP SOLUÇÕES ");
+        System.out.println(" SISTEMA DE CADASTRO DE CLIENTES ");
         System.out.println("=========================================");
 
         while (continuar) {
@@ -75,7 +58,7 @@ public class Main {
     }
 
     private static int lerOpcao() {
-        // Tratamento simples de erro: se o usuário digitar algo que não é um
+        // Tratamento simples de erro: se o usuário digitar algo que não é
         // número, o programa não quebra, apenas avisa e devolve -1.
         try {
             return Integer.parseInt(scanner.nextLine().trim());
@@ -191,11 +174,6 @@ public class Main {
         System.out.println("Pessoas Jurídicas: " + cadastro.contarPorTipo("Pessoa Jurídica"));
     }
 
-    /**
-     * Opção de demonstração/teste: cadastra alguns clientes de exemplo para
-     * facilitar a apresentação do sistema sem precisar digitar tudo na mão.
-     * Serve também como um "teste manual" rápido das regras de validação.
-     */
     private static void carregarDadosDeTeste() {
         System.out.println("\n-- Carregando dados de teste --");
         try {
@@ -205,8 +183,7 @@ public class Main {
                     "contato@paoquente.com", "12.345.678/0001-99", "Pão Quente Alimentos LTDA"));
             System.out.println(">> 3 clientes de teste carregados com sucesso.");
         } catch (IllegalArgumentException | IllegalStateException e) {
-            // Se o menu "8" for usado mais de uma vez, os documentos já
-            // existirão — isso é esperado e mostra a validação funcionando.
+
             System.out.println(">> Dados de teste já haviam sido carregados (" + e.getMessage() + ")");
         }
     }
